@@ -1,0 +1,10 @@
+	/*Precisamos alterar nosso arquivo app/routes/home.js, que não fará
+mais uso da função require para carregar seu controller. Em vez disso,
+ela procurará o controller diretamente na instância do Express passada como
+parâmetro. Vamos aproveitar e deixar apenas a rota ‘/’, removendo a rota ‘index’:*/
+
+
+	module.exports = function(app) {
+	var controller = app.controllers.home;
+	app.get('/', controller.index);
+}
